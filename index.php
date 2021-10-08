@@ -1,17 +1,8 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 require_once 'config.php';
 
-if (!authenticate()) {
-    header("HTTP/1.1 401 Unauthorized");
-    exit('Unauthorized');
-}
 
 if(isset($_GET['id'])){
 $action = explode('/',$_GET['id']);
@@ -36,12 +27,12 @@ if(!isset($cms)){
 	unset($uriSegments[1]);
 	$uriSegments  = $uriSegments;
 	
-	@$_GET['id'] = $uriSegments[3];
-	@$_GET['record'] = $uriSegments[4];
-	if(isset($uriSegments[2])){
-		$cms = $uriSegments[2];
+	@$_GET['id'] = $uriSegments[4];
+	@$_GET['record'] = $uriSegments[5];
+	if(isset($uriSegments[3])){
+		$cms = $uriSegments[3];
 	}else{
-		echo json_encode(array("error"=>"Route scope not found","error_type"=>"Invalid Route"));die;
+		$cms = 'home';
 	}
 	if(file_exists(DIR.'/'.$portal.$cms.'.php')){		
 		include DIR.'/'.$portal.$cms.'.php';
