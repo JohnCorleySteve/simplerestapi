@@ -41,6 +41,7 @@ if(isset($_GET['record']) && isset($_GET['id']) && $_GET['record']!='' &&  !isse
         $page_first_result = ($page-1) * $results_per_page;  
         
 		$get_data = mysqli_query($db,"SELECT * FROM currency LIMIT " . $page_first_result . ',' . $results_per_page."");
+        
 	}
 	$json = array();
 	if(mysqli_num_rows($get_data)>0){
