@@ -10,13 +10,17 @@
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "http://amit.byethost12.com/clients/simplerestapi/currencies");
 curl_setopt( $ch, CURLOPT_HTTPHEADER, [
-	"http-authorization: Bearer kdjf4u50943f78emjfoidjfg9rkue0"
+	"http-authorization: Bearer 6565393035326565323132646265333665313030336234616266346339333333"
 ]);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 ?>
 <div class="container">
     <h1 align="center">SIMPLE API</h1>
+    <div>
+        <a href="usertoken" class="btn btn-success">Get API Access Token</a>
+    </div>
+    <hr/>
 <table class="table table-bordered">
     <tr>
         <th>Currency Name</th>
